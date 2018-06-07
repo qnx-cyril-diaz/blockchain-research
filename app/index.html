@@ -48,8 +48,7 @@
           <h3 class="panel-title">Connection</h3>
         </div>
         <div class="panel-body">
-          <h4>Setup</h4>
-          <br>
+          <!-- <h4>Setup</h4> -->
           <p class='notready' id='connect_status'>Not connected</p><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
           <span>Provider</span>
           <span>
@@ -79,9 +78,12 @@
             <h3 class="panel-title">Accounts</h3>
           </div>
           <div class="panel-body">
-            <h4>Account</h4>
+            <!-- <h4>Account</h4> -->
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
             <span>Count</span><span class='notready' id='accounts_count'>...</span><br>
-            <span>Coinbase</span><span class='notready' id='coinbase'>...</span><br>
+            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+            <span>Coinbase </span><span class='notready' id='coinbase'>...</span><br>
+            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
             <span>Default A/c</span><span class='notready' id='defaultAccount'>...</span><br>
             <ol id="accounts_list">
                 <!-- This is where the accounts will be added -->
@@ -91,13 +93,46 @@
           </div>
           <div class="panel-body">
               <h4>Balance</h4>
-              <pre>
+              <div class="well">
                 <ol id="account_balances_list">
                   <!-- This is where the accounts balances will be added -->
                 </ol>
-              </pre>
+              </div>
           </div>
+      </div>
+
+      <!-- Unlock and lock accounts -->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Unlock and Lock Account</h3>
         </div>
+        <div class="panel-body">
+          <!-- <h4>Unlock Account</h4> -->
+          <div class="col-lg-6">
+            <div class="input-group">
+              <span class="input-group-addon">To</span>
+              <select  id="select_to_unlock_account" type="text" class="form-control" aria-describedby="sizing-addon2"></select>
+            </div>
+            <button type="button" class="btn btn-default" onclick="doUnlockAccount()">Unlock Account</button>
+          </div>
+          <div class="col-lg-6">
+            <div class="input-group">
+              <span class="input-group-addon">Password</span>
+              <input  id="unlock_account_password" type="text" class="form-control" placeholder="What is your password" aria-describedby="sizing-addon2">
+            </div>
+            <button type="button" class="btn btn-default" onclick="doLockAccount()">Lock Account</button>
+          </div>
+        
+          <br>
+        </div>
+        <div class="panel-body">
+            <h4>Un/Lock Account</h4>
+            <div class="well">
+              <p class="notready" id="lock_unlock_result">...</p>
+            </div>
+        </div>
+    </div>
 
      
       <div class="footer">

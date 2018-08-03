@@ -103,7 +103,7 @@
 
       <!-- Unlock and lock accounts -->
 
-      <div class="panel panel-default">
+    <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Unlock and Lock Account</h3>
         </div>
@@ -134,6 +134,73 @@
         </div>
     </div>
 
+    <!-- Send Ether -->
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Send Ether</h3>
+      </div>
+      <div class="panel-body">
+        <h4>Transaction Object</h4></br>
+        <div class="col-lg-9">
+          <div class="input-group">
+            <span class="input-group-addon">From</span>
+            <select  id="send_from_account" type="text" class="form-control" aria-describedby="sizing-addon2"></select>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">To</span>
+            <input list="send_to_account"  id="send_to_account_value" type="text" class="form-control" placeholder="Address" aria-describedby="sizing-addon2">
+            <datalist id="send_to_account">
+                <option value="Chrome">
+                <option value="Firefox">
+                <option value="Internet Explorer">
+                <option value="Opera">
+                <option value="Safari">
+                <option value="Microsoft Edge">
+              </datalist>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Value (ether)</span>
+            <input  id="send_value_in_ether" type="text" class="form-control" placeholder="value" aria-describedby="sizing-addon2">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Gas</span>
+            <input  id="send_gas" type="text" class="form-control" placeholder="Default" aria-describedby="sizing-addon2">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Gas Price (Wei)</span>
+            <input  id="send_gas_price" type="text" class="form-control" placeholder="Default" aria-describedby="sizing-addon2">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Data (ascii)</span>
+            <input  id="send_data" type="text" class="form-control" placeholder="Default" aria-describedby="sizing-addon2">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Nonce</span>
+            <input  id="send_nonce" type="text" class="form-control" placeholder="Default" aria-describedby="sizing-addon2">
+          </div>  
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-default" onclick="generateTransactionJSON()">JSON &gt;</button>
+          <button type="button" class="btn btn-default" onclick="resetTransactionObjectParameters()">Reset</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <h4>Json</h4>
+        <div class="well">
+          <p class="notready" id="send_transaction_object_json">...</p>
+        </div>
+        <div>
+            <button type="button" class="btn btn-default" onclick="doSendTransaction()">Send</button>
+        </div>
+      </br>
+        <h4>Result</h4>
+        <div class="well">
+          <p class="notready" id="tx_result">...</p>
+          <a href="" id='etherscan_link'></a>    
+        </div>
+      </div>   
+    </div>
      
       <div class="footer">
         <p>♥ from the Xyruz</p>

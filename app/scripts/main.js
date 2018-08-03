@@ -2,6 +2,7 @@ var autoRetrieveFlag = false; //true
 var nodeType = 'geth';
 var accounts;
 
+
 //On load
 
 window.addEventListener('load', function(){
@@ -166,5 +167,22 @@ function doLockAccount(){
         } else{
             setData('lock_unlock_result', 'Locked ' + account, false);
         }
+    });
+}
+
+function doSendTransaction(){
+
+    var txObject = createTransactionObject();
+
+    web3.eth.sendTransaction(txObject, function(error, result){
+        if(error){
+            setData('tx_result',error, true)
+        }else{
+            setData('tx_result', result, false)
+            var etherscanIoLink = document.getElementById('etherscan_link');
+            etherscanIoLinklink.href = createEtherscan('tx',result);
+            etherscanIoLink.innerHTML = 'etherscan.io';
+        }
+
     });
 }
